@@ -19,7 +19,7 @@ public class Ship {
     @Column(name = "name")
     private String name;
 
-    @JsonIgnoreProperties({"ship"})
+    @JsonBackReference
     @OneToMany(mappedBy = "ship")
     private List<Pirate> pirates;
 
