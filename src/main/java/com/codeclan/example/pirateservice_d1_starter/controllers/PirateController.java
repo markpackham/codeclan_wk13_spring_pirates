@@ -24,7 +24,7 @@ public class PirateController {
     }
 
     @GetMapping(value = "/pirates/{id}")
-    public Optional<Pirate> getPirate(@PathVariable Long id){
-        return pirateRepository.findById(id);
+    public ResponseEntity getPirate(@PathVariable Long id){
+        return new ResponseEntity<>(pirateRepository.findById(id), HttpStatus.OK);
     }
 }
