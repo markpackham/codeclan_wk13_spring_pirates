@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PirateserviceD1StarterApplicationTests {
@@ -30,28 +34,41 @@ public class PirateserviceD1StarterApplicationTests {
 	}
 
 	@Test
-	public void createPirateAndShip(){
-		Ship ship = new Ship("The Flying Dutchman");
-		shipRepository.save(ship);
-
-		Pirate pirate1 = new Pirate("Jack", "Sparrow", 32, ship);
-		pirateRepository.save(pirate1);
+	public void canFindPiratesOver30(){
+		List<Pirate> foundPirates = pirateRepository.findPiratesByAgeGreaterThan(30);
+		assertTrue(foundPirates.size() > 0);
 	}
 
 	@Test
-	public void addPiratesAndRaids(){
-		Ship ship = new Ship("The Flying Dutchman");
-		shipRepository.save(ship);
-
-		Pirate pirate1 = new Pirate("Jack", "Sparrow", 32, ship);
-		pirateRepository.save(pirate1);
-
-		Raid raid1 = new Raid("Tortuga", 100);
-		raidRepository.save(raid1);
-
-		raid1.addPirate(pirate1);
-		raidRepository.save(raid1);
-
+	public void canFindRaidByLocation(){
+		List<Raid> foundRaids = raidRepository.findRaidsByLocation("Havana");
+		assertTrue(foundRaids.size() > 0);
 	}
+
+//	Database Seeding (not advised to do in a Test file)
+//	@Test
+//	public void createPirateAndShip(){
+//		Ship ship = new Ship("The Flying Dutchman");
+//		shipRepository.save(ship);
+//
+//		Pirate pirate1 = new Pirate("Jack", "Sparrow", 32, ship);
+//		pirateRepository.save(pirate1);
+//	}
+//
+//	@Test
+//	public void addPiratesAndRaids(){
+//		Ship ship = new Ship("The Flying Dutchman");
+//		shipRepository.save(ship);
+//
+//		Pirate pirate1 = new Pirate("Jack", "Sparrow", 32, ship);
+//		pirateRepository.save(pirate1);
+//
+//		Raid raid1 = new Raid("Tortuga", 100);
+//		raidRepository.save(raid1);
+//
+//		raid1.addPirate(pirate1);
+//		raidRepository.save(raid1);
+//
+//	}
 
 }

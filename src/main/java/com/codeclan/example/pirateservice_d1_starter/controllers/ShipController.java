@@ -1,6 +1,5 @@
 package com.codeclan.example.pirateservice_d1_starter.controllers;
 
-import com.codeclan.example.pirateservice_d1_starter.models.Raid;
 import com.codeclan.example.pirateservice_d1_starter.models.Ship;
 import com.codeclan.example.pirateservice_d1_starter.repositories.ShipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
