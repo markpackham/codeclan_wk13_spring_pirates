@@ -71,6 +71,13 @@ public class PirateserviceD1StarterApplicationTests {
 		assertTrue(foundRaids.size() > 0);
 	}
 
+	@Test
+	public void canFindRaidsByPiratesShip(){
+		Ship foundShip = shipRepository.getOne(2L);
+		List<Raid> foundRaids = raidRepository.findByPiratesShip(foundShip);
+		assertTrue(foundRaids.size() > 0);
+	}
+
 //	Database Seeding (not advised to do in a Test file)
 //	@Test
 //	public void createPirateAndShip(){
