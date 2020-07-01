@@ -53,9 +53,10 @@ public class PirateserviceD1StarterApplicationTests {
 	}
 
 	@Test
-	public void canFindPiratesByRaid(){
+	public void canFindPiratesByRaidId(){
 		List<Pirate> foundPirates = pirateRepository.findPiratesByRaidsId(1L);
 		assertTrue(foundPirates.size() > 0);
+		assertEquals("Jack", foundPirates.get(0).getFirstName());
 	}
 
 //	Database Seeding (not advised to do in a Test file)
