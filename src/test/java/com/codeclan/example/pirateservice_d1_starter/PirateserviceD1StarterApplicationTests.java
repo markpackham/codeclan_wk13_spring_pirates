@@ -14,8 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -51,6 +50,12 @@ public class PirateserviceD1StarterApplicationTests {
 	public void canCountRaidByLocation(){
 		List<Raid> countRaids = raidRepository.countRaidsByLocation("Havana");
 		assertEquals("[1]",countRaids.toString());
+	}
+
+	@Test
+	public void canFindPiratesByRaid(){
+		List<Pirate> foundPirates = pirateRepository.findPiratesByRaidsId(1L);
+		assertTrue(foundPirates.size() > 0);
 	}
 
 //	Database Seeding (not advised to do in a Test file)

@@ -11,4 +11,6 @@ public interface PirateRepository extends JpaRepository<Pirate, Long> {
 
     List<Pirate> findPiratesByAgeGreaterThan(int age);
 
+    List<Pirate> findPiratesByRaidsId(Long id);
+
 }
