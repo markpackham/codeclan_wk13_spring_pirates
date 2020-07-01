@@ -44,6 +44,7 @@ public class PirateserviceD1StarterApplicationTests {
 	public void canFindRaidByLocation(){
 		List<Raid> foundRaids = raidRepository.findRaidsByLocation("Havana");
 		assertTrue(foundRaids.size() > 0);
+		assertEquals("Havana",foundRaids.get(0).getLocation());
 	}
 
 	@Test
