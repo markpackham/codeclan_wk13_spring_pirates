@@ -65,11 +65,11 @@ public class PirateserviceD1StarterApplicationTests {
 		assertEquals("Queen Anne's Revenge", foundShips.get(0).getName());
 	}
 
-//	@Test
-//	public void canFindRaidsByShipId(){
-//		List<Raid> foundRaids = raidRepository.findRaidsByShipId(1L);
-//		assertTrue(foundRaids.size() > 0);
-//	}
+	@Test
+	public void canFindRaidsByShipId(){
+		List<Raid> foundRaids = raidRepository.findRaidsByPiratesShipId(1L);
+		assertTrue(foundRaids.size() > 0);
+	}
 
 //	Database Seeding (not advised to do in a Test file)
 //	@Test
