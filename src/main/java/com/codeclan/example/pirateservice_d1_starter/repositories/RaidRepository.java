@@ -10,4 +10,5 @@ import java.util.List;
 public interface RaidRepository extends JpaRepository<Raid, Long> {
            List<Raid> findRaidsByLocation(String location);
            List<Raid> countRaidsByLocation(String location);
+//           List<Raid> findRaidsByShipId(Long id);
 }

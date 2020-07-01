@@ -59,6 +59,18 @@ public class PirateserviceD1StarterApplicationTests {
 		assertEquals("Jack", foundPirates.get(0).getFirstName());
 	}
 
+	@Test
+	public void canFindShipByPiratesByFirstName(){
+		List<Ship> foundShips = shipRepository.findShipsByPiratesFirstName("Edward");
+		assertEquals("Queen Anne's Revenge", foundShips.get(0).getName());
+	}
+
+//	@Test
+//	public void canFindRaidsByShipId(){
+//		List<Raid> foundRaids = raidRepository.findRaidsByShipId(1L);
+//		assertTrue(foundRaids.size() > 0);
+//	}
+
 //	Database Seeding (not advised to do in a Test file)
 //	@Test
 //	public void createPirateAndShip(){
