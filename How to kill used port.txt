@@ -1,4 +1,4 @@
-In the terminal find the PID and kill it
+In the terminal find the PID and kill it so Spring can use it
 
 lsof -i :8080
 kill -9 <PID>
